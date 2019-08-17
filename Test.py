@@ -3,6 +3,7 @@
 import openpyxl
 from openpyxl.styles import PatternFill, Color
 from openpyxl.styles import colors
+import specifier
 
 redFill = PatternFill(start_color = 'FFFF0000',end_color = 'FFFF0000',fill_type = 'solid')
 blueFill = PatternFill(start_color = '00B2EE',end_color = '00B2EE',fill_type = 'solid')
@@ -35,10 +36,10 @@ def reset():
     ws.cell(row=1,column=15).value = 'Hamed for Behnam'
     ws.cell(row=1,column=17).value = 'Hamed for Alireza'
     wb.save('Expenses.xlsx')
-    
+    specifier.spec()
 
 def row_finder(c):
-    wb = openpyxl.load_workbook('Expenses.xlsx')
+    wb = openpyxl.load_workbook('Expenses.xlsx',data_only=True)
     ws = wb.active
     counter = 1
     while ws.cell(row=counter,column=c).value is not None:
@@ -58,7 +59,7 @@ class shop:
         self.cost = cost
 
     def put(self,r,c):
-        wb = openpyxl.load_workbook('Expenses.xlsx')
+        wb = openpyxl.load_workbook('Expenses.xlsx',data_only=True)
         ws = wb.active
         ws.cell(row = r,column = c).value = self.item
         ws.cell(row = r,column = c+1).value = int(self.cost)
@@ -69,6 +70,7 @@ class shop:
         ws.cell(row = r+1,column = c).fill = greenFill
         ws.cell(row = r+1,column = c+1).fill = greenFill
         wb.save('Expenses.xlsx')
+        specifier.spec()
         print('Successfully done!')
 
 def data():
