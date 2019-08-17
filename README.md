@@ -12,3 +12,7 @@ you will see an error if:
 2. you enter a wrong name or misspell it
 
 once you add an item to the list for the first time the program will do summation calculations and add the sum of costs beneaath the column in a cell with different color and as you add more items this cell automatically goes down and down!
+
+in phase two (specifier), I added another module (specifier) including only one function (spec()) to the project.
+This module has the duty of calculation of debts and credits and updating the information of payments in a .txt file.
+Commiting every change to the Expenses.xlsx (including adding an item or resetting) would trigger the module specifier and message.txt would be updated!
